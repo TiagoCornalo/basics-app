@@ -1,16 +1,8 @@
 <template>
-  <img
-    v-if="img"
-    :src='img'
-    alt="bg"
-  />
+  <img v-if="img" :src='img' alt="bg" />
   <div class="bg-dark"></div>
   <div class="indecision-container">
-    <input
-      type="text"
-      placeholder="Hazme una pregunta"
-      v-model="question"
-    >
+    <input type="text" placeholder="Hazme una pregunta" v-model="question">
     <p>Recuerda terminar con un signo de interrogación (?)</p>
     <div v-if="isValidQuestion">
       <h2>
@@ -36,12 +28,18 @@ export default {
 
   methods: {
     async getAnswer() {
-      this.answer = 'Pensando...'
-      const { answer, image } = await fetch('https://yesno.wtf/api')
-        .then(response => response.json())
+      try {
+        this.answer = 'Pensando...'
+        const { answer, image } = await fetch('https://yesno.wtf/api')
+          .then(response => response.json())
 
-      this.answer = answer === 'yes' ? 'Sí!' : answer === 'no' ? 'No!' : 'Tal vez'
-      this.img = image
+        this.answer = answer === 'yes' ? 'Sí!' : answer === 'no' ? 'No!' : 'Tal vez'
+        this.img = image
+
+      } catch (error) {
+        this.answer = 'Ups! Algo salió mal'
+        this.img = null
+      }
     },
   },
 

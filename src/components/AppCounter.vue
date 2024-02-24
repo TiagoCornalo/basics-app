@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Count: {{ count }}</p>
+    <p data-testid="counter">{{ count }}</p>
     <button @click="count++">Increment</button>
     <button @click="count--">Decrement</button>
     <button @click.alt="count += 10">Increment 10</button>
@@ -9,7 +9,8 @@
     <h2>
       {{ customTitle }}
     </h2>
-    <p>Count: {{ count }} <sup>2</sup> = {{ squareValue }}</p>
+    <p> {{ count }} <sup>2</sup> = {{ squareValue }}</p>
+    <p>{{ count }}</p>
   </div>
 </template>
 
