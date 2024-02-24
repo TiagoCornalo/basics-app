@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AppCounter > should match snapshot 1`] = `
+"<div>
+  <p>Count: 150</p><button>Increment</button><button>Decrement</button><button>Increment 10</button>
+</div>
+<div>
+  <h2>Counter</h2>
+  <p>Count: 150 <sup>2</sup> = 22500</p>
+</div>"
+`;
